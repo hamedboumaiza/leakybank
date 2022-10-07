@@ -15,10 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import fr.ing.secu.leakybank.UserSession;
 import fr.ing.secu.leakybank.dao.UsersDAO;
@@ -54,7 +51,7 @@ public class AdminController extends BaseController {
 		return "admin/users";
 	}
 	
-	@RequestMapping(value="/users/{userLogin}/delete", method = RequestMethod.GET)
+	@DeleteMapping(value="/users/{userLogin}/delete")
 	public String deleteUser(@PathVariable("userLogin") String userLogin, Model model) {
 		
 		usersDao.deleteUser(userLogin);

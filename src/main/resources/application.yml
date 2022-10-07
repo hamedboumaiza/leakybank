@@ -1,8 +1,31 @@
 spring:
- thymeleaf:
-  cache: false
- 
- datasource: 
-  plateform: hsqldb
- 
+  thymeleaf:
+    cache: false
+
+  datasource:
+    plateform: hsqldb
+
 logging.level.org.springframework.jdbc.core.JdbcTemplate: DEBUG
+
+server:
+  session:
+    timeout: 10
+    cookie:
+      max-age: 10
+  #  servlet:
+  #    session:
+  #      timeout: 10
+  #      cookie:
+  #        max-age: 10
+  port: 443
+  ssl:
+    enabled: true
+    key-store: src/main/resources/keystoreHamed.p12
+    key-store-password: password
+    keyStoreType: PKCS12
+    keyAlias: tomcat
+
+
+security:
+  enable:
+    csrf: false
